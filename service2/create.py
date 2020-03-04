@@ -2,7 +2,6 @@ from application import db
 from application.models import Gender
 import pandas as pd
 
-db.drop_all()
 db.create_all()
 
 
