@@ -17,6 +17,15 @@ services:
     - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
     - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
 
+   service4:
+    build: ./service4
+    ports:
+    - target: 5000
+      published: 5000
+    environment:
+    - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
+    - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
+
 
 
 
