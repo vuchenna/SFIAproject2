@@ -11,8 +11,9 @@ def home():
 @app.route('/gender', methods=['GET', 'POST'])
 def gender():
 
-    id = random.randint(1,3)
-    gender = Gender.query.filter_by(id=id).first()
-    g = str(gender.id)
+    id = random.randint(0,2)
+    #gender = Gender.query.filter_by(id=id).first()
+    #g = str(gender.id)
+    g = str(id)
     return g
    #return(selectgender)
