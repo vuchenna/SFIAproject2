@@ -4,7 +4,6 @@ from sqlalchemy import select
 
 @app.route('/namegender', methods=['GET', 'POST'])
 def namegender():
-'''
     if method =='POST':
         both = str(request.data.decode("UTF-8"))
         ls = both.split(",")
@@ -16,7 +15,7 @@ def namegender():
         check = [name, gender]
         listToStr = ' '.join([str(elem) for elem in check])
     else:
-'''
+
         response = requests.get('http://nameapp_service2_1:5000/gender').text
         gender_genderid = int(response)
         list = ['Boy', 'Girl', 'Neutral']
