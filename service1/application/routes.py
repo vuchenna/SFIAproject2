@@ -21,16 +21,36 @@ def home():
 
         if gender == 'NONE' and first_letter == 'N/A':
             response=requests.get('http://nameapp_service4_1:5000/namegender').text
-            return response
-        
+            responselist = response.split(' ')
+            name = responselist[0]
+            bgn = responselist[1]
+
+            return render_template('home.html', title='Home', name=name,bgn=bgn, form=form)
+
         if gender == 'BOY' and first_letter == 'N/A':
             response=requests.get('http://nameapp_service4_1:5000/nameboy').text
-            
+            responselist = response.split(' ')
+            name = responselist[0]
+            bgn = responselist[1]
+
+            return render_template('home.html', title='Home', name=name,bgn=bgn, form=form)
+
+#            return response
+
             return render_template('home.html', title='Home', response=response,form=form)
+        
+        if gender == 'GIRL' and first_letter == 'N/A':
+            response=requests.get('http://nameapp_service4_1:5000/namegirl').text
+            responselist = response.split(' ')
+            name = responselist[0]
+            bgn = responselist[1]
+
+            return render_template('home.html', title='Home', name=name, bgn=bgn, form=form)
+
 #        form.submit.data = response
 #        return(result)
 #        response="%s"%(form.submit.data)
-            return response
+#            return response
     return render_template('home.html', title='Home', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])

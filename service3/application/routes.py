@@ -31,3 +31,11 @@ def namebyboy():
     name = Name.query.filter_by(genderno=boyid).order_by(func.random()).limit(1).first()
     check = name.value
     return str(check)
+
+
+@app.route('/namebygirl', methods = ['GET', 'POST'])
+def namebygirl():
+    girlid = 2
+    name = Name.query.filter_by(genderno=girlid).order_by(func.random()).limit(1).first()
+    check = name.value
+    return str(check)

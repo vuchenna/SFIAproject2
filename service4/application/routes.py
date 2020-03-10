@@ -33,3 +33,19 @@ def nameboy():
     listToStr = ' '.join([str(elem) for elem in check])
     return(listToStr)
 
+@app.route('/namegirl', methods=['GET', 'POST'])
+def namegirl():
+    response = requests.get('http://nameapp_service2_1:5000/gender/girl').text
+    girl = str(response)
+    #genderid = int(reponse)
+    #list = ['Boy', 'Girl', 'Neutral']
+    #gender = list[genderid]
+    #genderid = str(response)
+
+    response2 = requests.get('http://nameapp_service3_1:5000/namebygirl').text
+    name =  response2
+#    check = [name,girl]
+    check = str(name + ' ' + girl)
+  #  listToStr = ' '.join([str(elem) for elem in check])
+    return str(check)
+
