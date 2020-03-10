@@ -17,3 +17,8 @@ def gender():
     g = str(id)
     return g
    #return(selectgender)
+
+@app.route('/gender/boy', methods=['GET', 'POST'])
+def genderboy():
+    boy ='boy'
+    return str(boy)

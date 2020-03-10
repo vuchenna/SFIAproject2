@@ -18,15 +18,19 @@ def home():
     if form.validate_on_submit():
         gender = form.gender.data
         first_letter = form.alphabet.data
-        both = [gender, first_letter]
-        if form.gender.data == 'None' and first_letter == 'N/A'
+
+        if gender == 'NONE' and first_letter == 'N/A':
             response=requests.get('http://nameapp_service4_1:5000/namegender').text
-        else:
-            response=requests.post('http://nameapp_service4_1:5000/namegender', str(both)).text
+            return response
+        
+        if gender == 'BOY' and first_letter == 'N/A':
+            response=requests.get('http://nameapp_service4_1:5000/nameboy').text
+            
+            return render_template('home.html', title='Home', response=response,form=form)
 #        form.submit.data = response
 #        return(result)
 #        response="%s"%(form.submit.data)
-        return response
+            return response
     return render_template('home.html', title='Home', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])

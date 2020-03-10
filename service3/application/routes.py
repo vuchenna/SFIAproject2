@@ -6,10 +6,8 @@ from flask import request
 
 @app.route('/name', methods=['GET', 'POST'])
 def name():
+    response = requests.get('http://nameapp_service2_1:5000/gender').text
 
-#    response = requests.get('http://nameapp_service2_1:5000/gender').text
-
-    response = request.data.decode("utf-8")
     gender_genderid = int(response)
     gender_genderid = gender_genderid +1
 
@@ -22,3 +20,14 @@ def name():
     check = name.value
     return str(check)
 
+
+@app.route('/namebyboy', methods = ['GET', 'POST'])
+def namebyboy():
+    #response = requests.get('http://nameapp_service2_1:5000/gender/boy').text
+    boyid = 1
+
+    #if boyid == 1:
+
+    name = Name.query.filter_by(genderno=boyid).order_by(func.random()).limit(1).first()
+    check = name.value
+    return str(check)
