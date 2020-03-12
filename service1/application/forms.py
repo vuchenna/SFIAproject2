@@ -24,6 +24,20 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
+class AddForm(FlaskForm):
+    gender = StringField('gender',
+            validators=[
+                DataRequired(),
+                Length(min=3, max=4)
+            ]
+        )
+    name = StringField('name',
+        validators=[
+            DataRequired(),
+            Length(min=2, max=20)
+        ])
+
+
 class RegistrationForm(FlaskForm):
 
     first_name = StringField('First Name',

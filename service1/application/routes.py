@@ -11,6 +11,16 @@ def view():
     return render_template('view.html', title = 'view')
 
 
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    if current_user.is_anonymous:
+        return redirect(url_for('register'))
+
+
+
+
+
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home():

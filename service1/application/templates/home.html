@@ -17,8 +17,20 @@
     </form>
 </div>
 <div>
-    <h3> {{name}}</h3>
-    <h3> {{bgn}} </h3>
+    <table class="table">
+        <thead class="thead-light">
+            <th scope="col1"> Name </th>
+            <th scope="col1"> Gender </th>
+            <th scope="col1"> Option </th>
+
+        </thead>
+        <tr>
+            <td> {{name}} </td>
+            <td>{{bgn}}</td>
+	 <td> <a class="btn btn-info" role= "button" href="{{ url_for("add") }}">Add Name</a> </td>
+        </tr>
+  <!--  <h3> {{name}}</h3>
+  <h3> {{bgn}} </h3> -->
 </div>
 
 {% endblock %}
