@@ -5,7 +5,7 @@ import pandas as pd
 db.drop_all()
 db.create_all()
 
-data = pd.read_csv('../babynames2.csv')
+data = pd.read_csv('./babynames2.csv')
 #print(data)
 
 for index, row in data.iterrows():

@@ -6,7 +6,7 @@ from flask import request
 
 @app.route('/name', methods=['GET', 'POST'])
 def name():
-    response = requests.get('http://nameapp_service2_1:5000/gender').text
+    response = requests.get('http://service2:5000/gender').text
 
     gender_genderid = int(response)
     gender_genderid = gender_genderid +1

@@ -30,7 +30,7 @@ def home():
         first_letter = form.alphabet.data
 
         if gender == 'NONE' and first_letter == 'N/A':
-            response=requests.get('http://nameapp_service4_1:5000/namegender').text
+            response=requests.get('http://service4:5000/namegender').text
             responselist = response.split(' ')
             name = responselist[0]
             bgn = responselist[1]
@@ -38,7 +38,7 @@ def home():
             return render_template('home.html', title='Home', name=name,bgn=bgn, form=form)
 
         if gender == 'BOY' and first_letter == 'N/A':
-            response=requests.get('http://nameapp_service4_1:5000/nameboy').text
+            response=requests.get('http://service4:5000/nameboy').text
             responselist = response.split(' ')
             name = responselist[0]
             bgn = responselist[1]
@@ -50,7 +50,7 @@ def home():
             return render_template('home.html', title='Home', response=response,form=form)
         
         if gender == 'GIRL' and first_letter == 'N/A':
-            response=requests.get('http://nameapp_service4_1:5000/namegirl').text
+            response=requests.get('http://service4:5000/namegirl').text
             responselist = response.split(' ')
             name = responselist[0]
             bgn = responselist[1]

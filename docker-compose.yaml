@@ -1,38 +1,48 @@
 version: "3.7"
 services:
   service1:
+    image: 127.0.0.1:5000/service1
     build: ./service1
     ports:
     - target: 5000
-      published: 5000
+      published: 5001
     environment:
     - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
-    - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
+    - DATABASE_URI2=mysql+pymysql://root:admin@database/nameappdb
 
   service2:
+    image: 127.0.0.1:5000/service2
     build: ./service2
     ports:
     - target: 5000
     environment:
     - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
-    - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
+    - DATABASE_URI2=mysql+pymysql://root:admin@database/nameappdb
 
   service3:
+    image: 127.0.0.1:5000/service3
     build: ./service3
     ports:
     - target: 5000
     environment:
     - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
-    - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
+    - DATABASE_URI2=mysql+pymysql://root:admin@database/nameappdb
 
   service4:
+    image: 127.0.0.1:5000/service4
     build: ./service4
     ports:
     - target: 5000
     environment:
     - SECRET_KEY2="b780tqb3a0t87gbq4p8vim"
-    - DATABASE_URI2=mysql+pymysql://root:admin@35.246.63.226/nameappdb
+    - DATABASE_URI2=mysql+pymysql://root:admin@database/nameappdb
 
-
-
+  database:
+    image: mysql:5.7
+    ports:
+    - target: 3306
+      published: 3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=admin
+    - MYSQL_DATABASE=nameappdb
 

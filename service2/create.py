@@ -3,10 +3,10 @@ from application.models import Gender
 import pandas as pd
 
 db.create_all()
+db.drop_all()
 
 
-
-data = pd.read_csv('../bngender2.csv')
+data = pd.read_csv('./bngender2.csv')
 print(data)
 
 for index, row in data.iterrows():
